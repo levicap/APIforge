@@ -4,9 +4,9 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Api Forge',
-  description: 'Created with APIForge.flow',
-  generator: 'Ahmedbenyahia',
+  title: 'ApiFroge',
+  description: 'Created with Ahmed ben yahia',
+  generator: 'Apiforge',
 }
 
 export default function RootLayout({

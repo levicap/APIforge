@@ -1,29 +1,42 @@
 "use client"
+
+import { useState, useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import {
-  Check,
-  Zap,
-  Code,
-  Puzzle,
-  Sparkles,
-  ArrowRight,
-  Star,
-  Users,
-  Clock,
-  Shield,
-  Brain,
-  Mail,
-  Phone,
-  MapPin,
-  Globe,
-  HelpCircle,
-} from "lucide-react"
-import { WaitlistForm } from "@/components/waitlist-form"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { ArrowRight, Zap, Shield, Sparkles, Code, Database, Cpu, CheckCircle, Clock, Users, Star } from "lucide-react"
+import { WaitlistForm } from "@/components/waitlist-form"
 
 export default function LandingPage() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 30,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  })
+
+  useEffect(() => {
+    const targetDate = new Date()
+    targetDate.setDate(targetDate.getDate() + 30)
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime()
+      const distance = targetDate.getTime() - now
+
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
+        })
+      }
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Coming Soon Banner */}
@@ -33,37 +46,40 @@ export default function LandingPage() {
           Coming Soon
         </Badge>
         <span className="ml-2 text-sm">Be the first to experience the future of API development</span>
+        <div className="mt-2 flex justify-center items-center space-x-4 text-sm">
+          <span>Launch in:</span>
+          <div className="flex space-x-2">
+            <span className="bg-white/20 px-2 py-1 rounded">{timeLeft.days}d</span>
+            <span className="bg-white/20 px-2 py-1 rounded">{timeLeft.hours}h</span>
+            <span className="bg-white/20 px-2 py-1 rounded">{timeLeft.minutes}m</span>
+            <span className="bg-white/20 px-2 py-1 rounded">{timeLeft.seconds}s</span>
+          </div>
+        </div>
       </div>
 
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            {/* APIForge Logo */}
-            <img src="/images/api-logo.png" alt="APIForge Logo" className="w-10 h-10" />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
+              alt="APIForge"
+              className="w-8 h-8"
+            />
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               APIForge
             </span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">
               Features
             </a>
-            <a href="#ai-power" className="text-gray-600 hover:text-gray-900 transition-colors">
-              AI Powered
-            </a>
-            <a href="#frameworks" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Frameworks
-            </a>
-            <a href="#faq" className="text-gray-600 hover:text-gray-900 transition-colors">
-              FAQ
-            </a>
-            <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-colors">
               Pricing
             </a>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-              Get Early Access
-            </Button>
+            <a href="#faq" className="text-gray-600 hover:text-blue-600 transition-colors">
+              FAQ
+            </a>
           </nav>
         </div>
       </header>
@@ -103,7 +119,7 @@ export default function LandingPage() {
           <div className="relative max-w-5xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl blur-3xl"></div>
             <img
-              src="/images/flowforge-platform.png"
+              src="images/apiforge.png"
               alt="APIForge Platform - API Documentation Interface"
               className="relative rounded-2xl shadow-2xl border border-gray-200 w-full"
             />
@@ -132,7 +148,7 @@ export default function LandingPage() {
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Puzzle className="w-6 h-6 text-white" />
+                <Database className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Visual Builder</h3>
               <p className="text-gray-600 text-sm">Drag and drop components to build complex API workflows visually</p>
@@ -166,7 +182,7 @@ export default function LandingPage() {
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                  <Puzzle className="w-6 h-6 text-white" />
+                  <Database className="w-6 h-6 text-white" />
                 </div>
                 <CardTitle className="text-2xl mb-3">Visual API Design with Drag-and-Drop</CardTitle>
                 <CardDescription className="text-base leading-relaxed">
@@ -267,9 +283,8 @@ export default function LandingPage() {
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
-                  {/* New API Connectivity Logo */}
                   <img
-                    src="/placeholder.svg?height=32&width=32"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
                     alt="API Connectivity"
                     className="w-8 h-8 object-contain"
                   />
@@ -289,7 +304,7 @@ export default function LandingPage() {
       <section id="ai-power" className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto max-w-6xl text-center">
           <Badge className="mb-4 bg-blue-100 text-blue-700 border-blue-200">
-            <Brain className="w-3 h-3 mr-1" />
+            <Cpu className="w-3 h-3 mr-1" />
             AI at its Core
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
@@ -455,7 +470,7 @@ export default function LandingPage() {
                     "Basic templates",
                   ].map((feature) => (
                     <li key={feature} className="flex items-center">
-                      <Check className="w-5 h-5 text-green-500 mr-3" />
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
@@ -493,7 +508,7 @@ export default function LandingPage() {
                     "Custom integrations",
                   ].map((feature) => (
                     <li key={feature} className="flex items-center">
-                      <Check className="w-5 h-5 text-green-500 mr-3" />
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
@@ -527,7 +542,7 @@ export default function LandingPage() {
                     "Custom integrations",
                   ].map((feature) => (
                     <li key={feature} className="flex items-center">
-                      <Check className="w-5 h-5 text-green-500 mr-3" />
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
@@ -546,7 +561,7 @@ export default function LandingPage() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-orange-100 text-orange-700 border-orange-200">
-              <HelpCircle className="w-3 h-3 mr-1" />
+              <Zap className="w-3 h-3 mr-1" />
               Got Questions?
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Frequently Asked Questions</h2>
@@ -645,15 +660,19 @@ export default function LandingPage() {
       </section>
 
       {/* Professional Footer */}
-      <footer className="bg-gray-900 text-white py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="md:col-span-1">
               <div className="flex items-center space-x-3 mb-4">
                 {/* APIForge Logo in footer */}
-                <img src="/images/api-logo.png" alt="APIForge Logo" className="w-8 h-8" />
-                <span className="text-2xl font-bold">APIForge</span>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
+                  alt="APIForge"
+                  className="w-8 h-8"
+                />
+                <span className="text-xl font-bold">APIForge</span>
               </div>
               <p className="text-gray-400 mb-6">
                 The future of API development. Build powerful APIs with AI assistance and drag-and-drop simplicity.
@@ -676,7 +695,7 @@ export default function LandingPage() {
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.073-1.689-.073-4.849 0-3.204.013-3.583.07-4.849.196-4.354-2.617-6.78-6.979-6.98-1.281-.057 1.689-.073 4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.073-1.689-.073-4.849 0-3.204.013-3.583.07-4.849.196-4.354-2.617-6.78-6.979-6.98-1.281-.057 1.689-.073 4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.69-.073 4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                   </svg>
                 </a>
               </div>
@@ -761,23 +780,31 @@ export default function LandingPage() {
               <h3 className="text-lg font-semibold mb-4">Contact</h3>
               <ul className="space-y-3 text-gray-400">
                 <li className="flex items-center">
-                  <Mail className="w-4 h-4 mr-2" />
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-2.21 0-4 1.79-4 4v12c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V8c0-2.21-1.79-4-4-4zm0 14H4V8h16v10zm-1-5l-4 4-4-4 1.41-1.41L15 15.17l2.59-2.58z" />
+                  </svg>
                   <a href="mailto:ahmedbenyahia654@gmail.com" className="hover:text-white transition-colors">
                     ahmedbenyahia654@gmail.com
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <Phone className="w-4 h-4 mr-2" />
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 15 12.22 14.12 12.22H9.88c-.89 0-1.27.39-1.56.95-.29.56-.14 1.29.43 1.56l.27.28v.79c0 .45.54.67 1 .67h4c.46 0 1-.22 1-.67v-.79z" />
+                  </svg>
                   <a href="tel:+21650193344" className="hover:text-white transition-colors">
                     +216 50193344
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" />
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 22h20L12 2z" />
+                  </svg>
                   <span>Route Mahdia, Sfax, Tunisia</span>
                 </li>
                 <li className="flex items-center">
-                  <Globe className="w-4 h-4 mr-2" />
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm1-3h2V9h-2v4zm-1 0h2v4h-2v-4zm-1-3V9h2v4h-2z" />
+                  </svg>
                   <a href="https://apiforge.dev" className="hover:text-white transition-colors">
                     apiforge.dev
                   </a>
