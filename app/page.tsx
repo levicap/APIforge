@@ -78,7 +78,7 @@ export default function LandingPage() {
               </svg>
             </div>
             <span className="text-2xl font-bold bg-black  bg-clip-text text-transparent">
-              APIForge
+             ApiSpark
             </span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
@@ -112,7 +112,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Create powerful APIs in minutes, not hours. APIForge combines AI intelligence with intuitive drag-and-drop
+            Create powerful APIs in minutes, not hours. APISpark combines AI intelligence with intuitive drag-and-drop
             components that work seamlessly with any framework.
           </p>
 
@@ -184,7 +184,7 @@ export default function LandingPage() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              From concept to deployment, APIForge provides all the tools you need to create robust, scalable APIs.
+              From concept to deployment, APISpark provides all the tools you need to create robust, scalable APIs.
             </p>
           </div>
 
@@ -326,7 +326,7 @@ export default function LandingPage() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            APIForge leverages advanced AI models to generate clean, efficient, and production-ready API code. Focus on
+            APISpark leverages advanced AI models to generate clean, efficient, and production-ready API code. Focus on
             your logic, let AI handle the boilerplate.
           </p>
 
@@ -394,7 +394,7 @@ export default function LandingPage() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-            APIForge generates clean, production-ready code for any backend framework or language you prefer.
+           APISpark generates clean, production-ready code for any backend framework or language you prefer.
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
@@ -577,17 +577,17 @@ export default function LandingPage() {
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Frequently Asked Questions</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Find answers to common questions about APIForge, its features, and pricing.
+              Find answers to common questions about APISpark, its features, and pricing.
             </p>
           </div>
 
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger className="text-lg font-semibold text-gray-800 hover:text-blue-600">
-                What is APIForge?
+                What is APISpark?
               </AccordionTrigger>
               <AccordionContent className="text-gray-600 text-base leading-relaxed">
-                APIForge is an AI-powered API builder that allows you to create powerful APIs in minutes using an
+                APISpark is an AI-powered API builder that allows you to create powerful APIs in minutes using an
                 intuitive drag-and-drop interface. It integrates with various backend frameworks and leverages advanced
                 AI capabilities for code generation and workflow automation.
               </AccordionContent>
@@ -597,17 +597,17 @@ export default function LandingPage() {
                 How does AI assist in API building?
               </AccordionTrigger>
               <AccordionContent className="text-gray-600 text-base leading-relaxed">
-                AI in APIForge streamlines API development by intelligently generating code, suggesting optimal schema
+                AI in APISpark streamlines API development by intelligently generating code, suggesting optimal schema
                 designs, and automating complex logic. It helps reduce manual coding, accelerate prototyping, and ensure
                 high-quality, production-ready APIs.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger className="text-lg font-semibold text-gray-800 hover:text-blue-600">
-                What frameworks does APIForge support?
+                What frameworks does APISpark support?
               </AccordionTrigger>
               <AccordionContent className="text-gray-600 text-base leading-relaxed">
-                APIForge generates code compatible with a wide range of popular backend frameworks, ensuring seamless
+              APISpark generates code compatible with a wide range of popular backend frameworks, ensuring seamless
                 integration with your existing technology stack. This includes frameworks like NestJS, Spring Boot,
                 Express.js, FastAPI, Django, and Ruby on Rails.
               </AccordionContent>
@@ -617,7 +617,7 @@ export default function LandingPage() {
                 Is there a free plan available?
               </AccordionTrigger>
               <AccordionContent className="text-gray-600 text-base leading-relaxed">
-                Yes, APIForge offers a free tier designed for individual developers and small projects. This plan
+                Yes, APISpark offers a free tier designed for individual developers and small projects. This plan
                 provides access to core features, basic AI assistance, and community support, allowing you to get
                 started without any cost.
               </AccordionContent>
@@ -628,7 +628,7 @@ export default function LandingPage() {
               </AccordionTrigger>
               <AccordionContent className="text-gray-600 text-base leading-relaxed">
                 You can join our exclusive waitlist by providing your email address on our landing page. Early access
-                members will be among the first to experience APIForge's full capabilities and may receive special
+                members will be among the first to experience APISpark's full capabilities and may receive special
                 offers upon launch.
               </AccordionContent>
             </AccordionItem>
@@ -649,7 +649,7 @@ export default function LandingPage() {
             your API development?
           </h2>
           <p className="text-xl mb-12 opacity-90 max-w-2xl mx-auto">
-            Join thousands of developers who are already building the future with APIForge. Get early access and save
+            Join thousands of developers who are already building the future with APISpark. Get early access and save
             40% on your first year.
           </p>
 
@@ -709,7 +709,7 @@ export default function LandingPage() {
                 />
               </svg>
             </div>
-                <span className="text-xl font-bold">APIForge</span>
+                <span className="text-xl font-bold">ApiSpark</span>
               </div>
               <p className="text-gray-400 mb-6">
                 The future of API development. Build powerful APIs with AI assistance and drag-and-drop simplicity.
@@ -868,7 +868,7 @@ export default function LandingPage() {
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-gray-400 text-sm mb-4 md:mb-0">
-                <p>&copy; 2025 APIForge. All Rights Reserved. Coming soon to revolutionize API development.</p>
+                <p>&copy; 2025 APISpark. All Rights Reserved. Coming soon to revolutionize API development.</p>
               </div>
               <div className="flex space-x-6 text-gray-400 text-sm">
                 <a href="#" className="hover:text-white transition-colors">
