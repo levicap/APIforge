@@ -130,7 +130,7 @@ export default function LandingPage() {
           <div className="relative max-w-5xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl blur-3xl"></div>
             <img
-              src="images/apiscreen.PNG"
+              src="images/apispark.PNG"
               alt="APIForge Platform - API Documentation Interface"
               className="relative rounded-2xl shadow-2xl border border-gray-200 w-full"
             />
