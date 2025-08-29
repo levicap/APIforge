@@ -40,33 +40,44 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Coming Soon Banner */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 text-center">
-        <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-          <Sparkles className="w-3 h-3 mr-1" />
-          Coming Soon
-        </Badge>
-        <span className="ml-2 text-sm">Be the first to experience the future of API development</span>
-        <div className="mt-2 flex justify-center items-center space-x-4 text-sm">
-          <span>Launch in:</span>
-          <div className="flex space-x-2">
-            <span className="bg-white/20 px-2 py-1 rounded">{timeLeft.days}d</span>
-            <span className="bg-white/20 px-2 py-1 rounded">{timeLeft.hours}h</span>
-            <span className="bg-white/20 px-2 py-1 rounded">{timeLeft.minutes}m</span>
-            <span className="bg-white/20 px-2 py-1 rounded">{timeLeft.seconds}s</span>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
-              alt="APIForge"
-              className="w-8 h-8"
-            />
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2L2 7L12 12L22 7L12 2Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M2 17L12 22L22 17"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M2 12L12 17L22 12"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span className="text-2xl font-bold bg-black  bg-clip-text text-transparent">
               APIForge
             </span>
           </div>
@@ -119,7 +130,7 @@ export default function LandingPage() {
           <div className="relative max-w-5xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl blur-3xl"></div>
             <img
-              src="images/api.PNG"
+              src="images/apiscreen.PNG"
               alt="APIForge Platform - API Documentation Interface"
               className="relative rounded-2xl shadow-2xl border border-gray-200 w-full"
             />
@@ -667,11 +678,37 @@ export default function LandingPage() {
             <div className="md:col-span-1">
               <div className="flex items-center space-x-3 mb-4">
                 {/* APIForge Logo in footer */}
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
-                  alt="APIForge"
-                  className="w-8 h-8"
+                 <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2L2 7L12 12L22 7L12 2Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
+                <path
+                  d="M2 17L12 22L22 17"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M2 12L12 17L22 12"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
                 <span className="text-xl font-bold">APIForge</span>
               </div>
               <p className="text-gray-400 mb-6">
@@ -795,12 +832,7 @@ export default function LandingPage() {
                     +216 50193344
                   </a>
                 </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L2 22h20L12 2z" />
-                  </svg>
-                  <span>Route Mahdia, Sfax, Tunisia</span>
-                </li>
+             
                 <li className="flex items-center">
                   <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm1-3h2V9h-2v4zm-1 0h2v4h-2v-4zm-1-3V9h2v4h-2z" />
@@ -843,7 +875,7 @@ export default function LandingPage() {
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-gray-400 text-sm mb-4 md:mb-0">
-                <p>&copy; 2025 APIForge. All rights reserved. Coming soon to revolutionize API development.</p>
+                <p>&copy; 2025 APIForge. All Rights Reserved. Coming soon to revolutionize API development.</p>
               </div>
               <div className="flex space-x-6 text-gray-400 text-sm">
                 <a href="#" className="hover:text-white transition-colors">
