@@ -821,7 +821,7 @@ export default function LandingPage() {
                     <path d="M20 4H4c-2.21 0-4 1.79-4 4v12c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V8c0-2.21-1.79-4-4-4zm0 14H4V8h16v10zm-1-5l-4 4-4-4 1.41-1.41L15 15.17l2.59-2.58z" />
                   </svg>
                   <a href="mailto:ahmedbenyahia654@gmail.com" className="hover:text-white transition-colors">
-                    ahmedbenyahia654@gmail.com
+                    ahmedbenyahia.business@gmail.com
                   </a>
                 </li>
                 <li className="flex items-center">
@@ -829,18 +829,11 @@ export default function LandingPage() {
                     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 15 12.22 14.12 12.22H9.88c-.89 0-1.27.39-1.56.95-.29.56-.14 1.29.43 1.56l.27.28v.79c0 .45.54.67 1 .67h4c.46 0 1-.22 1-.67v-.79z" />
                   </svg>
                   <a href="tel:+21650193344" className="hover:text-white transition-colors">
-                    +216 50193344
+                    +216 50 193 344
                   </a>
                 </li>
              
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm1-3h2V9h-2v4zm-1 0h2v4h-2v-4zm-1-3V9h2v4h-2z" />
-                  </svg>
-                  <a href="https://apiforge.dev" className="hover:text-white transition-colors">
-                    apiforge.dev
-                  </a>
-                </li>
+                
               </ul>
 
               <div className="mt-6">
