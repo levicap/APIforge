@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Mail, CheckCircle, Loader2 } from "lucide-react"
 import { joinWaitlist } from "@/app/actions/waitlist"
+import emailjs from "@emailjs/browser"
 
 export function WaitlistForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -18,6 +19,33 @@ export function WaitlistForm() {
     setError("")
 
     try {
+      // Initialize EmailJS with your public key
+      emailjs.init("aOsypJLWMEc0BcJht")
+      
+      // Get form data
+      const email = formData.get("email") as string
+      const name = (formData.get("name") as string) || "Anonymous"
+      
+      // Prepare template parameters for the new template
+      const templateParams = {
+        user_name: name,
+        user_email: email,
+        subject: `New message from ${name}`,
+        message: `You've received a new message from your apispark website.
+
+From: ${name}
+
+Email: ${email}
+
+---
+
+This message was sent from your apispark contact form.`
+      }
+      
+      // Send email using EmailJS with the new template
+      await emailjs.send("service_jlvqyny", "template_fzyqvtm", templateParams)
+      
+      // Also call the existing server action
       const result = await joinWaitlist(formData)
 
       if (result.success) {
@@ -26,6 +54,7 @@ export function WaitlistForm() {
         setError(result.message)
       }
     } catch (err) {
+      console.error("EmailJS error:", err)
       setError("Something went wrong. Please try again.")
     } finally {
       setIsSubmitting(false)
