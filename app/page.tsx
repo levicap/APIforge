@@ -658,15 +658,6 @@ export default function LandingPage() {
             <WaitlistForm />
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/10 text-lg px-8 py-4 bg-transparent"
-            >
-              Schedule Demo
-            </Button>
-          </div>
         </div>
       </section>
 

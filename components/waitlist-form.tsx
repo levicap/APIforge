@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Mail, CheckCircle, Loader2 } from "lucide-react"
 import { joinWaitlist } from "@/app/actions/waitlist"
 import emailjs from "@emailjs/browser"
+import { toast } from "@/hooks/use-toast"
 
 export function WaitlistForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -49,7 +50,15 @@ This message was sent from your apispark contact form.`
       const result = await joinWaitlist(formData)
 
       if (result.success) {
-        setIsSubmitted(true)
+        // Show toast notification
+        toast({
+          title: "Success!",
+          description: "Your data has been sent. When we launch, you'll get an email.",
+        })
+        // Set submitted state after a short delay to show the loader
+        setTimeout(() => {
+          setIsSubmitted(true)
+        }, 1000)
       } else {
         setError(result.message)
       }
@@ -57,10 +66,35 @@ This message was sent from your apispark contact form.`
       console.error("EmailJS error:", err)
       setError("Something went wrong. Please try again.")
     } finally {
-      setIsSubmitting(false)
+      // Keep loader for at least 1 second before showing success state
+      if (!error) {
+        setTimeout(() => {
+          setIsSubmitting(false)
+        }, 1000)
+      } else {
+        setIsSubmitting(false)
+      }
     }
   }
 
+  // Display loader when submitting
+  if (isSubmitting && !isSubmitted) {
+    return (
+      <Card className="w-full max-w-md mx-auto border-blue-200 bg-gradient-to-br from-blue-50 to-purple-50">
+        <CardContent className="pt-6">
+          <div className="text-center py-8">
+            <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">Sending your information...</h3>
+            <p className="text-gray-600 text-sm">
+              Please wait while we process your request.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    )
+  }
+
+  // Display success message when submitted
   if (isSubmitted) {
     return (
       <Card className="w-full max-w-md mx-auto border-green-200 bg-green-50">
@@ -69,7 +103,7 @@ This message was sent from your apispark contact form.`
             <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-green-800 mb-2">You're on the list!</h3>
             <p className="text-green-700 text-sm">
-              We'll notify you as soon as APIForge launches. Get ready to revolutionize your API development!
+              We'll notify you as soon as APISpark launches. Get ready to revolutionize your API development!
             </p>
           </div>
         </CardContent>
@@ -86,7 +120,7 @@ This message was sent from your apispark contact form.`
         </Badge>
         <CardTitle className="text-xl">Join the Waitlist</CardTitle>
         <CardDescription>
-          Be among the first to experience APIForge and get exclusive early access with special pricing.
+          Be among the first to experience APISpark and get exclusive early access with special pricing.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -119,7 +153,7 @@ This message was sent from your apispark contact form.`
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Joining...
+                Sending...
               </>
             ) : (
               "Join Waitlist"
