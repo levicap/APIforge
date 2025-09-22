@@ -91,6 +91,9 @@ export default function LandingPage() {
             <a href="#faq" className="text-gray-600 hover:text-blue-600 transition-colors">
               FAQ
             </a>
+            <a href="#waitlist-form" className="text-gray-600 hover:text-blue-600 transition-colors">
+              Waitlist
+            </a>
           </nav>
         </div>
       </header>
@@ -120,6 +123,9 @@ export default function LandingPage() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4"
+              onClick={() => {
+                document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Join Waitlist
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -131,7 +137,7 @@ export default function LandingPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl blur-3xl"></div>
             <img
               src="images/apispark1.PNG"
-              alt="APIForge Platform - API Documentation Interface"
+              alt="APISpark Platform - API Documentation Interface"
               className="relative rounded-2xl shadow-2xl border border-gray-200 w-full"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl"></div>
@@ -637,7 +643,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section with Waitlist Form */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600" id="waitlist-form">
         <div className="container mx-auto max-w-4xl text-center text-white">
           <Badge className="mb-6 bg-white/20 text-white border-white/30">
             <Sparkles className="w-3 h-3 mr-1" />
